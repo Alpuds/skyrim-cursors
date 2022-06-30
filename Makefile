@@ -11,15 +11,15 @@ top_right_corner top_side top_tee ul_angle ur_angle vertical-text watch \
 X_cursor xterm zoom-in zoom-out
 
 all: png_hl
-	mkdir -p Adwaita/cursors
-	mkdir -p Adwaita-highlight/cursors
+	mkdir -p skyrim-cursors/cursors
+	mkdir -p skyrim-highlight/cursors
 	for c in $(CURSORS); do \
-	  xcursorgen $${c}.in Adwaita/cursors/$${c}; \
-	  xcursorgen $${c}_hl.in Adwaita-highlight/cursors/$${c}; \
+	  xcursorgen $${c}.in skyrim-cursors/cursors/$${c}; \
+	  xcursorgen $${c}_hl.in skyrim-highlight/cursors/$${c}; \
 	done
 
 	# Now make cursor aliases.
-	for d in Adwaita/cursors Adwaita-highlight/cursors; do \
+	for d in skyrim-cursors/cursors skyrim-highlight/cursors; do \
 	  cd $${d};                                                \
 	  ln   -sf   bd_double_arrow       c7088f0f3e6c8088236ef8e1e3e70000; \
 	  ln   -sf   bd_double_arrow       nwse-resize;                      \
@@ -98,7 +98,7 @@ all: png_hl
 	  cd -;                                                              \
 	done
 
-png: adwaita.svg
+png: skyrimCursors.svg
 	./renderpng.py $^ $(SIZES)
 
 png_hl: png genin.py genhighlight.py
@@ -106,13 +106,13 @@ png_hl: png genin.py genhighlight.py
 	./genhighlight.py $(addsuffix .in,$(CURSORS))
 
 tarball:
-	rm -f ../adwaita-cursors.tar.gz
-	tar --exclude='.git*' -cvzf ../adwaita-cursors.tar.gz ../$(notdir $(CURDIR))
+	rm -f ../skyrim-cursors.tar.gz
+	tar --exclude='.git*' -cvzf ../skyrim-cursors.tar.gz ../$(notdir $(CURDIR))
 
 clean:
 	rm -f *.in
-	rm -rf Adwaita/cursors
-	rm -rf Adwaita-highlight/cursors
+	rm -rf skyrim-cursors/cursors
+	rm -rf skyrim-highlight/cursors
 
 distclean: clean
 	rm -rf png

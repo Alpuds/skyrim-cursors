@@ -1,3 +1,11 @@
+# Skyrim X cursor theme
+
+Artwork is originally by Bethesda (except adwaita), and some designs are by
+Alpuds and Karlomagno24 from
+https://www.deviantart.com/karlomagno24/art/Skyrim-Cursor-Set-269380622
+
+# Original description
+
 # Adwaita cursors for HiDPI displays
 
 GNOME officially provides the [Adwaita cursor theme][1] only in sizes
